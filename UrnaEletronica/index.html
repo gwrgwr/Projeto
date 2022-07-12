@@ -6,25 +6,25 @@
         <style>
             body{
                 margin: 0;
-                background: url(fotourna.webp);
+                background: url(urna.jpg) no-repeat 50% -10% gray;
                 font-family: Verdana, sans-serif;
             }
             .conteudo{
                 width: 30%;
-                margin: 0px 550px ;
+                margin: 170px 320px 0;
+                position:center;
+                box-sizing: border-box
             }
             header img{
-                text-align: center;
-                margin: 10 auto;
+                margin: 0 auto;
                 display: block;
             }
             header h1{
-                margin: 10 ;
                 text-align: center;
             }
             .input input{
                 display: block;
-                margin: 0 auto 0px;
+                margin: 0 auto 10px;
                 width: 40%;
                 height: 30px;
                 font-size: 16pt;
@@ -34,7 +34,7 @@
                 text-align: center;
             }
             .button{
-                margin: 50px 90px;
+                margin: 30px 46px;
             }
             .button input, .resultado input{
                 margin: 0;
@@ -48,11 +48,10 @@
                 background: lightgray;
             }
             .resultado input{
-                margin-left: 140px;
+                margin-left: 137.5px;
                 position: relative;
                 top: -10px;
                 background: rgba(0, 128, 0);
-                left: 10%;
             }
             input[type="submit"], input[type="reset"], input[type="button"]{
                 cursor: pointer;
@@ -64,9 +63,8 @@
             .gov{
                 position: absolute;
                 width: 100px;
-                top: 12%;
-                left: 58%;
-                
+                top: 28.9%;
+                left: 47.3%;
             }
         </style>
     </head>
@@ -98,8 +96,8 @@
             </form>
         </div>
         <script>
-            // Bolsonaro, Haddad,lula da cachaça, Nulo
-            var votoP  = [0, 0, 0, 0];
+            // Bolsonaro, Haddad, Nulo
+            var votoP  = [0, 0, 0];
             // Eduardo Paes, Wilson Witzel, Nulo
             var votoG  = [0, 0, 0];
             var branco = 0;
@@ -119,9 +117,11 @@
                     case "13":
                         document.querySelector("#pres").innerHTML = "<img class='pres' src='haddad.png'>";
                         break;
-                    case "9":
-                        document.querySelector("#pres").innerHTML = "<img class='pres' src='lula da cachaça.jpg'>";
-                        break;
+                    case "":    
+                        document.querySelector("#pres").innerHTML = ""
+                    case "1":    
+                        document.querySelector("#pres").innerHTML = ""
+                        
                 }
 			}
 			function fotog(form)
@@ -135,6 +135,10 @@
                     case "20":
                         document.querySelector("#gov").innerHTML = "<img class='gov' src='wilson.png'>";
                         break;
+                    case "":    
+                        document.querySelector("#gov").innerHTML = ""
+                    case "2":    
+                        document.querySelector("#gov").innerHTML = ""
                 }
 			}
             function calcular(form){
@@ -153,14 +157,9 @@
                         alert("Voto de Presidente para Haddad!");
                         votoP[1] = votoP[1] + 1;
                         break;
-                    case "9":
-                        //document.querySelector("#pres").innerHTML = "<img class='pres' src='lula da cachaça.jpg'>";
-                        alert("Voto de Presidente para Lula da cachaça!");
-                        votoP[2] = votoP[2] + 1;
-                        break;
                     default:
                         alert("Voto nulo para presidente!");
-                        votoP[3] = votoP[3] + 1;
+                        votoP[2] = votoP[2] + 1;
                 }
 
                 switch (governador){
@@ -199,13 +198,12 @@ Presidente:
 
 Quantidade de votos para Bolsonaro: ${votoP[0]}
 Quantidade de votos para Haddad: ${votoP[1]}
-Quantidade de votos para lula da canhaça: ${votoP[2]}
-Quantidade de votos Nulo: ${votoP[3]}
+Quantidade de votos Nulo: ${votoP[2]}
 
 Governador:
 Quantidade de votos para Wilson Witzel: ${votoG[1]}
 Quantidade de votos para Eduardo Paes: ${votoG[0]}
-Quantidade de votos nulo: ${votoP[2]}`)
+Quantidade de votos nulo: ${votoG[2]}`)
             }
 
             // função para desabilitar a tecla F5.
